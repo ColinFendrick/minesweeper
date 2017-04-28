@@ -1,7 +1,7 @@
 const API_BASE = 'https://minesweeper-api.herokuapp.com/'
 
 const newGame = difficulty => {
-  const url = [API_BASE, 'games/', difficulty].join('')
+  const url = [API_BASE, 'games?difficulty=', difficulty].join('')
   return window.fetch(url, {
     method: 'POST'
   }).then(r => r.json())

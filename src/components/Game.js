@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import TopBar from './TopBar'
 import GameSquare from './GameSquare'
-// import DiffButton from './DiffButton'
+import DiffButton from './DiffButton'
 import { observer } from 'mobx-react'
 import { getGame } from '../stores/api'
 import gamestate from '../stores/game'
@@ -28,11 +28,6 @@ class Game extends Component {
           {board}
         </div>
       </div>
-      {/* <footer>
-        <DiffButton diff='1' />
-        <DiffButton diff='2' />
-        <DiffButton diff='3' />
-      </footer> */}
     </div>
   }
 }
