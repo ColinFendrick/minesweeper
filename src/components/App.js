@@ -5,9 +5,7 @@ import Game from './Game'
 class App extends Component {
   render () {
     return <Router>
-      <div className='App' onContextMenu={() => {
-        return false
-      }}>
+      <div className='App'>
         <Route path='/:id' component={Game} />
       </div>
     </Router>

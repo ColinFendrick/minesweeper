@@ -1,17 +1,35 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { observer } from 'mobx-react'
-import gamestate from '../stores/game.js'
+import gamestate from '../stores/game'
+import { check, flag } from '../stores/api'
 
-const _click = e => {
-  gamestate.turnsLeft = gamestate.turnsLeft - 1
-  console.log(e.button)
-  console.log(this.props.row)
+@observer
+class GameSquare extends Component {
+  _click = e => {
+    if (gamestate.turnsLeft > 0) {
+      gamestate.turnsLeft = gamestate.turnsLeft - 1
+    }
+    check(this.props.id, this.props.row, this.props.col)
+    .then(data => {
+      gamestate.game = data
+    })
+  }
+
+  _rgtClick = e => {
+    e.preventDefault()
+    flag(this.props.id, this.props.row, this.props.col)
+    .then(data => {
+      gamestate.game = data
+    })
+  }
+
+  render () {
+    return <div className='GameSquare'
+      style={{gridRow: `${this.props.row + 1}`, gridCol: `${this.props.col + 1}fr`}}
+      onClick={this._click}
+      onContextMenu={this._rgtClick}>
+      {this.props.content}
+    </div>
+  }
 }
-
-const GameSquare = () => (
-  <div className='GameSquare' onClick={_click} style={{gridRow: '1', gridColumn: '1'}}>
-    1
-  </div>
-)
-
-export default observer(GameSquare)
+export default GameSquare

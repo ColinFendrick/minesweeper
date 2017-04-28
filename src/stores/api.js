@@ -9,13 +9,9 @@ const newGame = difficulty => {
 
 const getGame = id => {
   const url = [API_BASE, 'games/', id].join('')
-  console.log(url)
   return window.fetch(url, {
     method: 'GET'
   }).then(r => r.json())
-  // .then(data => {
-  //   gamestate = data
-  // })
 }
 
 const check = (id, row, col) => {
