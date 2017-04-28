@@ -60,12 +60,17 @@ body {
   @include border-decoration;
 }
 
+footer {
+  display: flex;
+  justify-content: space-between;
+}
+
 .1-1 {
   grid-column: 1;
   grid-row: 1;
 }
 
 .1-2 {
-  grid-row: 2;
+  grid-row: 1;
   grid-column: 2;
 }

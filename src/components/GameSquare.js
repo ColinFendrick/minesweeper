@@ -1,14 +1,15 @@
 import React from 'react'
 import { observer } from 'mobx-react'
-// import { newGame, getGame } from '../stores/api.js'
 import gamestate from '../stores/game.js'
 
-const _click = () => {
+const _click = e => {
   gamestate.turnsLeft = gamestate.turnsLeft - 1
+  console.log(e.button)
+  console.log(this.props.row)
 }
 
 const GameSquare = () => (
-  <div className='GameSquare' onClick={_click}>
+  <div className='GameSquare' onClick={_click} style={{gridRow: '1', gridColumn: '1'}}>
     1
   </div>
 )

@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Game from './Game'
 
 class App extends Component {
   render () {
-    return <div className='App'>
-      <Game />
-    App
-  </div>
+    return <Router>
+      <div className='App' onContextMenu={() => {
+        return false
+      }}>
+        <Route path='/:id' component={Game} />
+      </div>
+    </Router>
   }
 }
 
