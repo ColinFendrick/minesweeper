@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 import gamestate from '../stores/game'
+import _ from 'lodash'
 
 @observer
 class MineCounter extends Component {

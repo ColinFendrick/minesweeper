@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import TopBar from './TopBar'
 import GameSquare from './GameSquare'
-import DiffButton from './DiffButton'
 import { observer } from 'mobx-react'
 import { getGame } from '../stores/api'
 import gamestate from '../stores/game'
+import { NavLink } from 'react-router-dom'
 
 @observer
 class Game extends Component {
@@ -21,14 +21,23 @@ class Game extends Component {
         return <GameSquare row={i} col={j} content={gamestate.game.board[i][j]} id={this.props.match.params.id} />
       })
     })
-    return <div>
-      <div className='Game'>
-        <TopBar />
-        <div className='gameBoard'>
-          {board}
+    if (gamestate.game.state === 'won') {
+      window.location = '/won'
+    } else if (gamestate.game.state === 'lost') {
+      window.location = '/lost'
+    } else {
+      return <div>
+        <div className='Game'>
+          <TopBar />
+          <div className='gameBoard'>
+            {board}
+          </div>
         </div>
+        <NavLink to='/'>
+        Hey
+      </NavLink>
       </div>
-    </div>
+    }
   }
 }
 

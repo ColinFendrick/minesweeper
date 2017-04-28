@@ -5,7 +5,8 @@ class GameState {
   @observable wins = 0
   @observable losses = 0
   @observable game = {
-    board: []
+    board: [],
+    mines: 0
   }
 }
 

@@ -12,8 +12,9 @@ class DiffButton extends Component {
   }
 
   render () {
+    const titles = ['easy', 'medium', 'hard']
     return <button className='DiffButton' onClick={this._click}>
-      {this.props.diff}
+      {titles[this.props.diff]}
     </button>
   }
 }

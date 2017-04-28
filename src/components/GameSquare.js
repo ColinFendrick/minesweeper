@@ -17,10 +17,12 @@ class GameSquare extends Component {
 
   _rgtClick = e => {
     e.preventDefault()
-    flag(this.props.id, this.props.row, this.props.col)
-    .then(data => {
-      gamestate.game = data
-    })
+    if (gamestate.game.mines > 0) {
+      flag(this.props.id, this.props.row, this.props.col)
+      .then(data => {
+        gamestate.game = data
+      })
+    }
   }
 
   render () {

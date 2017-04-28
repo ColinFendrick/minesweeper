@@ -23,11 +23,13 @@ body {
 
 .App {
   color: green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .Game {
-  width: 500px;
-  height: 318px;
+  width: auto;
   background-color: $grey;
   color: $red;
   margin: auto;
@@ -36,6 +38,7 @@ body {
 }
 
 .TopBar {
+  width: auto;
   height: 23px;
   display: flex;
   justify-content: space-between;
@@ -49,9 +52,8 @@ body {
 }
 
 .gameBoard {
+  width: auto;
   display: grid;
-  width: stretch;
-  height: auto;
   grid-auto-columns: minmax(16px, 16px);
   grid-auto-rows: minmax(16px, 16px);
 }
@@ -60,7 +62,25 @@ body {
   @include border-decoration;
 }
 
-footer {
+.Home {
+  margin: auto;
+  margin-top: 100px;
+  height: 200px;
+  width: 80vh;
+  background-color: grey;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.diffButtons {
+  width: stretch;
+  display: flex;
+  justify-content: space-around;
+}
+
+.DiffButton {
+  height: 20px;
+  width: 200px;
 }
