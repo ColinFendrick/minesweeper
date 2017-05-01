@@ -8,7 +8,7 @@ const Counter = () => (
       wins: {gamestate.wins}
     </div>
     <div className='losses'>
-        losses: {gamestate.losses}
+      losses: {gamestate.losses}
     </div>
   </div>
 )
