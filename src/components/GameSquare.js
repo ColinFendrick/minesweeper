@@ -12,7 +12,7 @@ class GameSquare extends Component {
     }
     check(this.props.id, this.props.row, this.props.col)
     .then(data => {
-      if (gamestate.game.state === 'lost') {
+      if ((gamestate.game.state === 'lost') || (gamestate.turnsLeft === 0)) {
         gamestate.losses++
         this.props.history.push('/lost')
       } else if (gamestate.game.state === 'won') {
