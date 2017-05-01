@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TopBar from './TopBar'
 import GameSquare from './GameSquare'
+import Counter from './Counter'
 import { observer } from 'mobx-react'
 import { getGame } from '../stores/api'
 import gamestate from '../stores/game'
@@ -21,23 +22,20 @@ class Game extends Component {
         return <GameSquare row={i} col={j} content={gamestate.game.board[i][j]} id={this.props.match.params.id} />
       })
     })
-    if (gamestate.game.state === 'won') {
-      window.location = '/won'
-    } else if (gamestate.game.state === 'lost') {
-      window.location = '/lost'
-    } else {
-      return <div>
-        <div className='Game'>
-          <TopBar />
-          <div className='gameBoard'>
-            {board}
-          </div>
+    return <div>
+      <div className='Game'>
+        <TopBar />
+        <div className='gameBoard'>
+          {board}
         </div>
-        <NavLink to='/'>
-        Hey
-      </NavLink>
       </div>
-    }
+      <div className='bottomLinks'>
+        <NavLink to='/'>
+            Hey
+          </NavLink>
+        <Counter />
+      </div>
+    </div>
   }
 }
 

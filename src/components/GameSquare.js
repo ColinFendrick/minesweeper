@@ -7,10 +7,17 @@ import { check, flag } from '../stores/api'
 class GameSquare extends Component {
   _click = e => {
     if (gamestate.turnsLeft > 0) {
-      gamestate.turnsLeft = gamestate.turnsLeft - 1
+      gamestate.turnsLeft--
     }
     check(this.props.id, this.props.row, this.props.col)
     .then(data => {
+      if (gamestate.game.state === 'lost') {
+        gamestate.losses++
+        window.location = '/lost'
+      } else if (gamestate.game.state === 'won') {
+        gamestate.wins++
+        window.location = '/won'
+      }
       gamestate.game = data
     })
   }
