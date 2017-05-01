@@ -1,8 +1,9 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const Won = () => (
   <div className='Won'>
-    You won
+    <NavLink to='/'>You won</NavLink>
   </div>
 )
 

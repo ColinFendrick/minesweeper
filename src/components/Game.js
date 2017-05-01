@@ -31,8 +31,8 @@ class Game extends Component {
       </div>
       <div className='bottomLinks'>
         <NavLink to='/'>
-            Go home
-          </NavLink>
+          Go home
+        </NavLink>
         <Counter />
       </div>
     </div>

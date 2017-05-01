@@ -1,8 +1,9 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const Lost = () => (
   <div className='Lost'>
-    You lost
+    <NavLink to='/'>You lost</NavLink>
   </div>
 )
 
