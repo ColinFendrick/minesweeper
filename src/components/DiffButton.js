@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import { newGame } from '../stores/api'
 import gamestate from '../stores/game'
+import { withRouter } from 'react-router-dom'
 
 class DiffButton extends Component {
   _click = () => {
     newGame(this.props.diff)
     .then(data => {
       gamestate.game = data
-      window.location = `/game/${data.id}`
+      // window.location = `/game/${data.id}`
+      this.props.history.push(`game/${data.id}`)
     })
   }
 
@@ -19,4 +21,4 @@ class DiffButton extends Component {
   }
 }
 
-export default DiffButton
+export default withRouter(DiffButton)

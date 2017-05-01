@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 import gamestate from '../stores/game'
 import { check, flag } from '../stores/api'
+import { withRouter } from 'react-router-dom'
 
 @observer
 class GameSquare extends Component {
@@ -13,10 +14,10 @@ class GameSquare extends Component {
     .then(data => {
       if (gamestate.game.state === 'lost') {
         gamestate.losses++
-        window.location = '/lost'
+        this.props.history.push('/lost')
       } else if (gamestate.game.state === 'won') {
         gamestate.wins++
-        window.location = '/won'
+        this.props.history.push('/won')
       }
       gamestate.game = data
     })
@@ -41,4 +42,4 @@ class GameSquare extends Component {
     </div>
   }
 }
-export default GameSquare
+export default withRouter(GameSquare)
