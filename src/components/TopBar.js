@@ -1,5 +1,4 @@
 import React from 'react'
-import MoveCounter from './MoveCounter'
 import Face from './Face'
 import MineCounter from './MineCounter'
 import { observer } from 'mobx-react'
@@ -9,7 +8,6 @@ const TopBar = () => (
   <div className='TopBar'>
     <MineCounter />
     <Face diff={gamestate.game.difficulty} />
-    <MoveCounter />
   </div>
 )
 

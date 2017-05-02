@@ -7,7 +7,7 @@ $red: #f00;
 
 @mixin border-decoration {
   border-collapse: separate;
-  border-spacing: 2px;
+  border-spacing: 1px;
   border-color: teal;
   border-style: solid;
 }
@@ -19,10 +19,10 @@ html {
 body {
   margin: 0;
   font: $base-text-size / 1 $base-font-family;
+  background-image: linear-gradient(to left top, blue, teal);
 }
 
 .App {
-  color: green;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,7 +72,6 @@ body {
   margin-top: 100px;
   height: 200px;
   width: 80vh;
-  background-color: grey;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -87,5 +86,11 @@ body {
 
 .DiffButton {
   height: 20px;
-  width: 200px;
+  width: 100px;
+  border-radius: 15px;
+  background-color: white;
+
+  &:hover {
+    background-color: orange;
+  }
 }

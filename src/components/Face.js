@@ -3,7 +3,7 @@ import { newGame } from '../stores/api'
 import { observer } from 'mobx-react'
 import gamestate from '../stores/game'
 
-const Face = ({diff}) => {
+const Face = ({ diff }) => {
   const _click = () => {
     newGame(diff)
     .then(data => {

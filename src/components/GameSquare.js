@@ -7,12 +7,9 @@ import { withRouter } from 'react-router-dom'
 @observer
 class GameSquare extends Component {
   _click = e => {
-    if (gamestate.turnsLeft > 0) {
-      gamestate.turnsLeft--
-    }
     check(this.props.id, this.props.row, this.props.col)
     .then(data => {
-      if ((gamestate.game.state === 'lost') || (gamestate.turnsLeft === 0)) {
+      if (gamestate.game.state === 'lost') {
         gamestate.losses++
         this.props.history.push('/lost')
       } else if (gamestate.game.state === 'won') {

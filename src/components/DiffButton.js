@@ -8,7 +8,6 @@ class DiffButton extends Component {
     newGame(this.props.diff)
     .then(data => {
       gamestate.game = data
-      // window.location = `/game/${data.id}`
       this.props.history.push(`game/${data.id}`)
     })
   }
